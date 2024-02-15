@@ -10,7 +10,7 @@ const {
 
 const classroomRouter = express.Router();
 
-classroomRouter.get('/all', userInputValidationResultChecker, ClassroomController.fetchClassrooms);
+classroomRouter.get('/all', ClassroomController.fetchClassrooms);
 
 classroomRouter.post(
     '/create',
