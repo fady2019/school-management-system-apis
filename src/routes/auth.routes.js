@@ -12,8 +12,8 @@ const authRouter = express.Router();
  * /api/auth/login:
  *   post:
  *     tags:
- *     - Authentication
- *     summary: Login as SuperAdmin, SchoolAdmin or Student.
+ *       - Authentication
+ *     summary: Login as Super Admin, School Admin or Student.
  *     description: Performing Login successfully leads to setting a cookie that contains the authentication token to the response headers.
  *     requestBody:
  *       required: true
@@ -28,30 +28,27 @@ const authRouter = express.Router();
  *           application/json:
  *             schema:
  *               oneOf:
- *               - $ref: '#/components/schemas/SuperAdmin'
- *               - $ref: '#/components/schemas/SchoolAdmin'
- *               - $ref: '#/components/schemas/Student'
+ *                 - $ref: '#/components/schemas/SuperAdmin'
+ *                 - $ref: '#/components/schemas/SchoolAdmin'
+ *                 - $ref: '#/components/schemas/Student'
  *       401:
  *        description: Unauthorized
  *        content:
  *          application/json:
  *            schema:
  *              $ref: '#/components/schemas/ResponseError'
- *
  *       404:
  *        description: Not Found
  *        content:
  *          application/json:
  *            schema:
  *              $ref: '#/components/schemas/ResponseError'
- *
  *       422:
  *        description: Unprocessable Entity
  *        content:
  *          application/json:
  *            schema:
  *              $ref: '#/components/schemas/ResponseError'
- *
  *       5xx:
  *        description: Server Issue
  *        content:
@@ -66,7 +63,7 @@ authRouter.post('/login', loginValidators, userInputValidationResultChecker, Aut
  * /api/auth/auto-login:
  *   get:
  *     tags:
- *     - Authentication
+ *       - Authentication
  *     summary: Get the user’s information if possible.
  *     description: Getting the user’s information using the authentication token that’s stored in a cookie if any, otherwise returns null.
  *     responses:
@@ -77,10 +74,9 @@ authRouter.post('/login', loginValidators, userInputValidationResultChecker, Aut
  *             schema:
  *               nullable: true
  *               oneOf:
- *                - $ref: '#/components/schemas/SuperAdmin'
- *                - $ref: '#/components/schemas/SchoolAdmin'
- *                - $ref: '#/components/schemas/Student'
- *
+ *                 - $ref: '#/components/schemas/SuperAdmin'
+ *                 - $ref: '#/components/schemas/SchoolAdmin'
+ *                 - $ref: '#/components/schemas/Student'
  *       5xx:
  *        description: Server Issue
  *        content:
@@ -101,7 +97,6 @@ authRouter.get('/auto-login', tokenChecker({ setNullIfNoToken: true }), AuthCont
  *     responses:
  *       200:
  *         description: Success
- *
  *       5xx:
  *        description: Server Issue
  *        content:
