@@ -7,6 +7,9 @@ APIs for School Management System, built using Node.js.
 ## Deployment
 https://school-management-sys-m66t.onrender.com
 
+## APIs Document
+https://school-management-sys-m66t.onrender.com/api-docs
+
 ## Technologies
 <div>
   <span>
