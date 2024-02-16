@@ -6,10 +6,14 @@ const ExpressAppSingleton = require('./models/ExpressAppSingleton');
 const ResponseError = require('./models/ResponseError');
 const appRouter = require('./routes/app.routes');
 
+const { initSwaggerDocs } = require('./jsDocs/swagger/swaggerConfig');
+
 const init = async () => {
     const expressApp = ExpressAppSingleton.createInstance().expressApp;
 
     expressApp.use('/api', appRouter);
+
+    initSwaggerDocs(expressApp);
 
     expressApp.use((req, _res, _next) => {
         throw new ResponseError(
