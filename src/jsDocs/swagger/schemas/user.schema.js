@@ -41,7 +41,7 @@
  *           properties:
  *             managedSchoolId:
  *               type: string
- * 
+ *
  *     UpdateSchoolAdminInput:
  *       allOf:
  *         - $ref: '#/components/schemas/UpdateUserInput'
@@ -59,6 +59,20 @@
  *           properties:
  *             level:
  *               type: number
+ *               minimum: 1
+ *               maximum: 18
+ *             classroomId:
+ *               type: string
+ *
+ *     UpdateStudentInput:
+ *       allOf:
+ *         - $ref: '#/components/schemas/UpdateUserInput'
+ *         - type: object
+ *           properties:
+ *             level:
+ *               type: number
+ *               minimum: 1
+ *               maximum: 18
  *             classroomId:
  *               type: string
  *
@@ -101,8 +115,8 @@
  *           properties:
  *             level:
  *               type: number
- *               min: 1
- *               max: 18
+ *               minimum: 1
+ *               maximum: 18
  *             schoolId:
  *               type: string
  *               nullable: true
