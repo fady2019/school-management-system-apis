@@ -2,79 +2,68 @@
  * @openapi
  * components:
  *   schemas:
- *     CreateUserInput:
+ *     UserInput:
  *       type: object
- *       required:
- *         - name
- *         - username
- *         - password
  *       properties:
  *         name:
  *           type: string
+ *           minLen: 2
  *         username:
  *           type: string
+ *           minLen: 3
  *         password:
  *           type: string
+ *           minLen: 6
  *
- *     UpdateUserInput:
- *       type: object
- *       properties:
- *         name:
- *           type: string
- *         username:
- *           type: string
- *         password:
- *           type: string
+ *     CreateUserInput:
+ *       allOf:
+ *         - $ref: '#/components/schemas/UserInput'
+ *         - type: object
+ *           required:
+ *             - name
+ *             - username
+ *             - password
+ *
+ *     SuperAdminInput:
+ *       allOf:
+ *         - $ref: '#/components/schemas/UserInput'
  *
  *     CreateSuperAdminInput:
  *       allOf:
  *         - $ref: '#/components/schemas/CreateUserInput'
  *
- *     UpdateSuperAdminInput:
+ *     SchoolAdminInput:
  *       allOf:
- *         - $ref: '#/components/schemas/UpdateUserInput'
- *
- *     CreateSchoolAdminInput:
- *       allOf:
- *         - $ref: '#/components/schemas/CreateUserInput'
+ *         - $ref: '#/components/schemas/UserInput'
  *         - type: object
  *           properties:
  *             managedSchoolId:
  *               type: string
  *
- *     UpdateSchoolAdminInput:
+ *     CreateSchoolAdminInput:
  *       allOf:
- *         - $ref: '#/components/schemas/UpdateUserInput'
+ *         - $ref: '#/components/schemas/CreateUserInput'
+ *         - $ref: '#/components/schemas/SchoolAdminInput'
+ *
+ *     StudentInput:
+ *       allOf:
+ *         - $ref: '#/components/schemas/UserInput'
  *         - type: object
  *           properties:
- *             managedSchoolId:
+ *             level:
+ *               type: number
+ *               minimum: 1
+ *               maximum: 18
+ *             classroomId:
  *               type: string
  *
  *     CreateStudentInput:
  *       allOf:
  *         - $ref: '#/components/schemas/CreateUserInput'
+ *         - $ref: '#/components/schemas/StudentInput'
  *         - type: object
  *           required:
  *             - level
- *           properties:
- *             level:
- *               type: number
- *               minimum: 1
- *               maximum: 18
- *             classroomId:
- *               type: string
- *
- *     UpdateStudentInput:
- *       allOf:
- *         - $ref: '#/components/schemas/UpdateUserInput'
- *         - type: object
- *           properties:
- *             level:
- *               type: number
- *               minimum: 1
- *               maximum: 18
- *             classroomId:
- *               type: string
  *
  *     User:
  *       type: object
@@ -115,8 +104,6 @@
  *           properties:
  *             level:
  *               type: number
- *               minimum: 1
- *               maximum: 18
  *             schoolId:
  *               type: string
  *               nullable: true

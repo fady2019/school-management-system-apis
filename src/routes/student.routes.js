@@ -23,18 +23,18 @@ const studentRouter = express.Router();
  *       - name: classroomId
  *         in: query
  *         description: The id of the classroom, set it to filter students by classroom.
- *         required: false
  *         schema:
  *           type: string
+ *         required: false
  *
  *       - name: level
  *         in: query
  *         description: The level of students, set it to filter students by level.
- *         required: false
  *         schema:
  *           type: number
  *           minimum: 1
  *           maximum: 18
+ *         required: false
  *     responses:
  *       200:
  *         description: Success
@@ -147,6 +147,8 @@ studentRouter.post(
  *       - name: userId
  *         in: path
  *         description: The id of the target Student
+ *         schema:
+ *           type: string
  *         required: true
  *     responses:
  *       200:
@@ -201,13 +203,15 @@ studentRouter.get(
  *       - name: userId
  *         in: path
  *         description: The id of the target Student
+ *         schema:
+ *           type: string
  *         required: true
  *     requestBody:
  *       required: false
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UpdateStudentInput'
+ *             $ref: '#/components/schemas/StudentInput'
  *     responses:
  *       200:
  *         description: Success
@@ -269,6 +273,8 @@ studentRouter.patch(
  *       - name: userId
  *         in: path
  *         description: The id of the target Student
+ *         schema:
+ *           type: string
  *         required: true
  *     responses:
  *       200:

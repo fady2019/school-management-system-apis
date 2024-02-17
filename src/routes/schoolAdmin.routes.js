@@ -118,6 +118,8 @@ schoolAdminRouter.post(
  *       - name: userId
  *         in: path
  *         description: The id of the target School Admin
+ *         schema:
+ *           type: string
  *         required: true
  *     responses:
  *       200:
@@ -172,13 +174,15 @@ schoolAdminRouter.get(
  *       - name: userId
  *         in: path
  *         description: The id of the target School Admin
+ *         schema:
+ *           type: string
  *         required: true
  *     requestBody:
  *       required: false
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UpdateSchoolAdminInput'
+ *             $ref: '#/components/schemas/SchoolAdminInput'
  *     responses:
  *       200:
  *         description: Success
@@ -241,6 +245,8 @@ schoolAdminRouter.patch(
  *       - name: userId
  *         in: path
  *         description: The id of the target School Admin
+ *         schema:
+ *           type: string
  *         required: true
  *     responses:
  *       200:

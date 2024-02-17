@@ -118,6 +118,8 @@ superAdminRouter.post(
  *       - name: userId
  *         in: path
  *         description: The id of the target Super Admin
+ *         schema:
+ *           type: string
  *         required: true
  *     responses:
  *       200:
@@ -172,13 +174,15 @@ superAdminRouter.get(
  *       - name: userId
  *         in: path
  *         description: The id of the target Super Admin
+ *         schema:
+ *           type: string
  *         required: true
  *     requestBody:
  *       required: false
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UpdateSuperAdminInput'
+ *             $ref: '#/components/schemas/SuperAdminInput'
  *     responses:
  *       200:
  *         description: Success
@@ -241,6 +245,8 @@ superAdminRouter.patch(
  *       - name: userId
  *         in: path
  *         description: The id of the target Super Admin
+ *         schema:
+ *           type: string
  *         required: true
  *     responses:
  *       200:
