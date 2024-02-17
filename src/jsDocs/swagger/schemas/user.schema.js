@@ -41,6 +41,14 @@
  *           properties:
  *             managedSchoolId:
  *               type: string
+ * 
+ *     UpdateSchoolAdminInput:
+ *       allOf:
+ *         - $ref: '#/components/schemas/UpdateUserInput'
+ *         - type: object
+ *           properties:
+ *             managedSchoolId:
+ *               type: string
  *
  *     CreateStudentInput:
  *       allOf:
