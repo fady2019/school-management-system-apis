@@ -116,6 +116,7 @@ schoolRouter.get(
  *     parameters:
  *       - $ref: '#/components/parameters/SchoolIdParam'
  *     requestBody:
+ *       required: false
  *       content:
  *         application/json:
  *           schema:
@@ -153,7 +154,7 @@ schoolRouter.patch(
  *     summary: Delete a School.
  *     description: >
  *       Deleting a specific School if any and returning the deleted version, otherwise returns null. <br> <br>
- *       Performing the deletion successfully leads to deleting all Students and Classrooms of that School and setting the “managedSchoolId” to null for all SchoolAdmins of that school. which means removing the relation between that School and the mentioned entities.
+ *       Performing the deletion successfully leads to deleting all Students and Classrooms of that School and setting the “managedSchoolId” to null for all SchoolAdmins of that School. which means removing the relation between that School and the mentioned entities.
  *     parameters:
  *       - $ref: '#/components/parameters/SchoolIdParam'
  *     responses:
