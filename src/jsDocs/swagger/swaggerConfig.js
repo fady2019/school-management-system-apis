@@ -27,7 +27,10 @@ const swaggerOptions = {
                 name: 'Students',
                 description: 'Only School Admins who manage Schools can assess these endpoints!',
             },
-            { name: 'Classrooms', description: 'Not Done Yet!' },
+            {
+                name: 'Classrooms',
+                description: 'Only School Admins who manage Schools can assess these endpoints!',
+            },
         ],
     },
     apis: [
