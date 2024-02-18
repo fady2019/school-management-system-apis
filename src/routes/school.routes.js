@@ -27,24 +27,12 @@ const schoolRouter = express.Router();
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/School'
- *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *      401:
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolRouter.get('/all', SchoolController.fetchSchools);
 
@@ -69,29 +57,13 @@ schoolRouter.get('/all', SchoolController.fetchSchools);
  *             schema:
  *               $ref: '#/components/schemas/School'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolRouter.post(
     '/create',
@@ -123,29 +95,13 @@ schoolRouter.post(
  *             schema:
  *               $ref: '#/components/schemas/School'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolRouter.get(
     '/:schoolId',
@@ -182,29 +138,13 @@ schoolRouter.get(
  *             schema:
  *               $ref: '#/components/schemas/School'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolRouter.patch(
     '/:schoolId/update',
@@ -239,29 +179,13 @@ schoolRouter.patch(
  *             schema:
  *               $ref: '#/components/schemas/School'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolRouter.delete(
     '/:schoolId/delete',

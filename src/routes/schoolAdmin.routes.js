@@ -28,23 +28,11 @@ const schoolAdminRouter = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/SchoolAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolAdminRouter.get('/all', SchoolAdminController.fetchSchoolAdmins);
 
@@ -69,35 +57,15 @@ schoolAdminRouter.get('/all', SchoolAdminController.fetchSchoolAdmins);
  *             schema:
  *               $ref: '#/components/schemas/SchoolAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       409:
- *         description: Conflict
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ConflictError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolAdminRouter.post(
     '/create',
@@ -131,29 +99,13 @@ schoolAdminRouter.post(
  *               allOf:
  *                 - $ref: '#/components/schemas/SchoolAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolAdminRouter.get(
     '/:userId',
@@ -193,35 +145,15 @@ schoolAdminRouter.get(
  *               allOf:
  *                 - $ref: '#/components/schemas/SchoolAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       409:
- *         description: Conflict
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ConflictError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolAdminRouter.patch(
     '/:userId/update',
@@ -258,29 +190,13 @@ schoolAdminRouter.patch(
  *               allOf:
  *                 - $ref: '#/components/schemas/SchoolAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 schoolAdminRouter.delete(
     '/:userId/delete',

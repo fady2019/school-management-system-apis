@@ -30,7 +30,11 @@ const swaggerOptions = {
             { name: 'Classrooms', description: 'Not Done Yet!' },
         ],
     },
-    apis: ['./src/routes/*.routes.js', './src/jsDocs/swagger/schemas/*.schema.js'],
+    apis: [
+        './src/routes/*.routes.js',
+        './src/jsDocs/swagger/schemas/*.schema.js',
+        './src/jsDocs/swagger/responses/*.response.js',
+    ],
 };
 
 /**

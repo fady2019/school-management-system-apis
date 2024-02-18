@@ -32,29 +32,13 @@ const authRouter = express.Router();
  *                 - $ref: '#/components/schemas/SchoolAdmin'
  *                 - $ref: '#/components/schemas/Student'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       404:
- *         description: Not Found
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/NotFoundError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 authRouter.post('/login', loginValidators, userInputValidationResultChecker, AuthController.login);
 
@@ -78,11 +62,7 @@ authRouter.post('/login', loginValidators, userInputValidationResultChecker, Aut
  *                 - $ref: '#/components/schemas/SchoolAdmin'
  *                 - $ref: '#/components/schemas/Student'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 authRouter.get('/auto-login', tokenChecker({ setNullIfNoToken: true }), AuthController.autoLogin);
 
@@ -98,11 +78,7 @@ authRouter.get('/auto-login', tokenChecker({ setNullIfNoToken: true }), AuthCont
  *       200:
  *         description: Success
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 authRouter.get('/logout', AuthController.logout);
 

@@ -28,23 +28,11 @@ const superAdminRouter = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/SuperAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 superAdminRouter.get('/all', SuperAdminController.fetchSuperAdmins);
 
@@ -69,35 +57,15 @@ superAdminRouter.get('/all', SuperAdminController.fetchSuperAdmins);
  *             schema:
  *               $ref: '#/components/schemas/SuperAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       409:
- *         description: Conflict
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ConflictError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 superAdminRouter.post(
     '/create',
@@ -131,29 +99,13 @@ superAdminRouter.post(
  *               allOf:
  *                 - $ref: '#/components/schemas/SuperAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 superAdminRouter.get(
     '/:userId',
@@ -193,35 +145,15 @@ superAdminRouter.get(
  *               allOf:
  *                 - $ref: '#/components/schemas/SuperAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       409:
- *         description: Conflict
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ConflictError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 superAdminRouter.patch(
     '/:userId/update',
@@ -240,7 +172,7 @@ superAdminRouter.patch(
  *     summary: Delete a Super Admin.
  *     description: >
  *       Deleting a specific Super Admin if any and returning the deleted version, otherwise returns null. <br> <br>
- *       Performing the deletion successfully leads to setting the “creatorId” to null for Super Admins, School Admins and Schools created by the deleted Super Admin which means removing the relation between that Super Admin and the mentioned entities. 
+ *       Performing the deletion successfully leads to setting the “creatorId” to null for Super Admins, School Admins and Schools created by the deleted Super Admin which means removing the relation between that Super Admin and the mentioned entities.
  *     parameters:
  *       - name: userId
  *         in: path
@@ -258,29 +190,13 @@ superAdminRouter.patch(
  *               allOf:
  *                 - $ref: '#/components/schemas/SuperAdmin'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 superAdminRouter.delete(
     '/:userId/delete',

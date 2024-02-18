@@ -45,29 +45,13 @@ const studentRouter = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/Student'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 studentRouter.get(
     '/all',
@@ -98,35 +82,15 @@ studentRouter.get(
  *             schema:
  *               $ref: '#/components/schemas/Student'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       409:
- *         description: Conflict
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ConflictError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 studentRouter.post(
     '/create',
@@ -160,29 +124,13 @@ studentRouter.post(
  *               allOf:
  *                 - $ref: '#/components/schemas/Student'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 studentRouter.get(
     '/:userId',
@@ -222,35 +170,15 @@ studentRouter.get(
  *               allOf:
  *                 - $ref: '#/components/schemas/Student'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       409:
- *         description: Conflict
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ConflictError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 studentRouter.patch(
     '/:userId/update',
@@ -286,29 +214,13 @@ studentRouter.patch(
  *               allOf:
  *                 - $ref: '#/components/schemas/Student'
  *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
- *         description: Forbidden
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ForbiddenError'
  *       422:
- *         description: Unprocessable Entity
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/UnprocessableEntityError'
  *       5xx:
- *         description: Server Issue
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/responses/ServerError'
  */
 studentRouter.delete(
     '/:userId/delete',
