@@ -1,6 +1,30 @@
 # School Management System
-APIs for School Management System, built using Node.js.
-
+School Management System APIs, built using Node.js and Express.js. <br/> <br/>
+There are three types of users:
+1. Super Admins: They can do the following
+   - login
+   - create/update/delete super-admins
+   - fetch all super-admins
+   - fetch super-admin by id
+   - create/update/delete school-admins
+   - fetch all school-admins
+   - fetch school-admin by id
+   - create/update/delete schools
+   - fetch all schools
+   - fetch school by id
+     
+2. School Admins: They can do the following
+   - login
+   - create/update/delete students
+   - fetch all students
+   - fetch student by id
+   - create/update/delete classrooms
+   - fetch all classrooms
+   - fetch classroom by id
+ 
+3. Student
+   - login
+   
 ## Database Schemas
 ![School Management System (1)](https://github.com/fady2019/school-management-system-apis/assets/60940882/bcd8f679-5344-42d3-95f2-115dc6b30e0e)
 
