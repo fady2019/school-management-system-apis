@@ -87,12 +87,20 @@
  *     SuperAdmin:
  *       allOf:
  *         - $ref: '#/components/schemas/User'
+ *         - type: object
+ *           properties:
+ *             userType:
+ *               type: string
+ *               enum: [SuperAdmin]
  *
  *     SchoolAdmin:
  *       allOf:
  *         - $ref: '#/components/schemas/User'
  *         - type: object
  *           properties:
+ *             userType:
+ *               type: string
+ *               enum: [SchoolAdmin]
  *             managedSchoolId:
  *               type: string
  *               nullable: true
@@ -102,11 +110,13 @@
  *         - $ref: '#/components/schemas/User'
  *         - type: object
  *           properties:
+ *             userType:
+ *               type: string
+ *               enum: [Student]
  *             level:
  *               type: number
  *             schoolId:
  *               type: string
- *               nullable: true
  *             classroomId:
  *               type: string
  *               nullable: true
