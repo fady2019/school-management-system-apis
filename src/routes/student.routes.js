@@ -108,12 +108,7 @@ studentRouter.post(
  *     summary: Get a Student by ID.
  *     description: Getting a specific Student by ID in the School managed by the logged in School Admin if any, otherwise returns null.
  *     parameters:
- *       - name: userId
- *         in: path
- *         description: The id of the target Student
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/StudentIdParam'
  *     responses:
  *       200:
  *         description: Success
@@ -148,12 +143,7 @@ studentRouter.get(
  *     summary: Update a Student.
  *     description: Updating a specific Student in the School managed by the logged in School Admin if any and returning the updated version, otherwise returns null.
  *     parameters:
- *       - name: userId
- *         in: path
- *         description: The id of the target Student
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/StudentIdParam'
  *     requestBody:
  *       required: false
  *       content:
@@ -198,12 +188,7 @@ studentRouter.patch(
  *     description:
  *       Deleting a specific Student from the School managed by the logged in School Admin if any and returning the deleted version, otherwise returns null.
  *     parameters:
- *       - name: userId
- *         in: path
- *         description: The id of the target Student
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/StudentIdParam'
  *     responses:
  *       200:
  *         description: Success

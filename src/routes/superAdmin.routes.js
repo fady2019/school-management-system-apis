@@ -83,12 +83,7 @@ superAdminRouter.post(
  *     summary: Get a Super Admin by ID.
  *     description: Getting a specific Super Admin by ID if any, otherwise returns null.
  *     parameters:
- *       - name: userId
- *         in: path
- *         description: The id of the target Super Admin
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/SuperAdminIdParam'
  *     responses:
  *       200:
  *         description: Success
@@ -123,12 +118,7 @@ superAdminRouter.get(
  *     summary: Update a Super Admin.
  *     description: Updating a specific Super Admin if any and returning the updated version, otherwise returns null.
  *     parameters:
- *       - name: userId
- *         in: path
- *         description: The id of the target Super Admin
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/SuperAdminIdParam'
  *     requestBody:
  *       required: false
  *       content:
@@ -174,12 +164,7 @@ superAdminRouter.patch(
  *       Deleting a specific Super Admin if any and returning the deleted version, otherwise returns null. <br> <br>
  *       Performing the deletion successfully leads to setting the “creatorId” to null for Super Admins, School Admins and Schools created by the deleted Super Admin which means removing the relation between that Super Admin and the mentioned entities.
  *     parameters:
- *       - name: userId
- *         in: path
- *         description: The id of the target Super Admin
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/SuperAdminIdParam'
  *     responses:
  *       200:
  *         description: Success

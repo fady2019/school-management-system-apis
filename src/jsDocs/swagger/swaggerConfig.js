@@ -34,6 +34,7 @@ const swaggerOptions = {
         './src/routes/*.routes.js',
         './src/jsDocs/swagger/schemas/*.schema.js',
         './src/jsDocs/swagger/responses/*.response.js',
+        './src/jsDocs/swagger/parameters/*.parameter.js',
     ],
 };
 

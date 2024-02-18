@@ -83,12 +83,7 @@ schoolAdminRouter.post(
  *     summary: Get a School Admin by ID.
  *     description: Getting a specific School Admin by ID if any, otherwise returns null.
  *     parameters:
- *       - name: userId
- *         in: path
- *         description: The id of the target School Admin
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/SchoolAdminIdParam'
  *     responses:
  *       200:
  *         description: Success
@@ -123,12 +118,7 @@ schoolAdminRouter.get(
  *     summary: Update a School Admin.
  *     description: Updating a specific School Admin if any and returning the updated version, otherwise returns null.
  *     parameters:
- *       - name: userId
- *         in: path
- *         description: The id of the target School Admin
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/SchoolAdminIdParam'
  *     requestBody:
  *       required: false
  *       content:
@@ -174,12 +164,7 @@ schoolAdminRouter.patch(
  *       Deleting a specific School Admin if any and returning the deleted version, otherwise returns null. <br> <br>
  *       Performing the deletion successfully leads to setting the “creatorId” to null for Students and Classrooms created by the deleted School Admin which means removing the relation between that School Admin and the mentioned entities.
  *     parameters:
- *       - name: userId
- *         in: path
- *         description: The id of the target School Admin
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/SchoolAdminIdParam'
  *     responses:
  *       200:
  *         description: Success

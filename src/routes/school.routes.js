@@ -27,7 +27,7 @@ const schoolRouter = express.Router();
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/School'
- *      401:
+ *       401:
  *         $ref: '#/components/responses/UnauthorizedError'
  *       403:
  *         $ref: '#/components/responses/ForbiddenError'
@@ -81,12 +81,7 @@ schoolRouter.post(
  *     summary: Get a school by ID.
  *     description: Getting a specific School by ID if any, otherwise returns null.
  *     parameters:
- *       - name: schoolId
- *         in: path
- *         description: The id of the target School
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/SchoolIdParam'
  *     responses:
  *       200:
  *         description: Success
@@ -119,12 +114,7 @@ schoolRouter.get(
  *     summary: Update a School.
  *     description: Updating a specific School if any and returning the updated version, otherwise returns null.
  *     parameters:
- *       - name: schoolId
- *         in: path
- *         description: The id of the target School
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/SchoolIdParam'
  *     requestBody:
  *       content:
  *         application/json:
@@ -165,12 +155,7 @@ schoolRouter.patch(
  *       Deleting a specific School if any and returning the deleted version, otherwise returns null. <br> <br>
  *       Performing the deletion successfully leads to deleting all Students and Classrooms of that School and setting the “managedSchoolId” to null for all SchoolAdmins of that school. which means removing the relation between that School and the mentioned entities.
  *     parameters:
- *       - name: schoolId
- *         in: path
- *         description: The id of the target School
- *         schema:
- *           type: string
- *         required: true
+ *       - $ref: '#/components/parameters/SchoolIdParam'
  *     responses:
  *       200:
  *         description: Success
