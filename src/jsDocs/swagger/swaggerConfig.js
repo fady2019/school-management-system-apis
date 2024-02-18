@@ -22,7 +22,7 @@ const swaggerOptions = {
             { name: 'Authentication', description: 'Any user can access these endpoints!' },
             { name: 'Super Admins', description: 'Only Super Admins can assess these endpoints!' },
             { name: 'School Admins', description: 'Only Super Admins can assess these endpoints!' },
-            { name: 'Schools', description: 'Not Done Yet!' },
+            { name: 'Schools', description: 'Only Super Admins can assess these endpoints!' },
             {
                 name: 'Students',
                 description: 'Only School Admins who manage Schools can assess these endpoints!',

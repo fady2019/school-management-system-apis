@@ -7,13 +7,13 @@
  *       properties:
  *         name:
  *           type: string
- *           minLen: 2
+ *           minLength: 2
  *         username:
  *           type: string
- *           minLen: 3
+ *           minLength: 3
  *         password:
  *           type: string
- *           minLen: 6
+ *           minLength: 6
  *
  *     CreateUserInput:
  *       allOf:
