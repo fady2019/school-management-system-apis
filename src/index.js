@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const { connectToDB } = require('./connection/db');
+const Cache = require('./connection/cache');
 const ExpressAppSingleton = require('./models/ExpressAppSingleton');
 const ResponseError = require('./models/ResponseError');
 const appRouter = require('./routes/app.routes');
@@ -34,6 +35,7 @@ const init = async () => {
     });
 
     await connectToDB();
+    await Cache.init();
 
     expressApp.listen(8000, () => {
         console.log('Server is Running');

@@ -1,6 +1,7 @@
 const ResponseError = require('../models/ResponseError');
 const UserService = require('./User.service');
 const { SuperAdmin } = require('../schemas/superAdmin.schema');
+const CacheUtils = require('../utils/cache.utils');
 
 require('../jsDocs/globalDefinitions');
 
@@ -33,12 +34,16 @@ class SuperAdminService {
         try {
             await UserService.shouldBeUniqueUsername(data.username);
 
-            const admin = await new SuperAdmin(data).save();
+            let admin = await new SuperAdmin(data).save();
 
-            return {
+            admin = {
                 ...admin.toJSON(),
                 password: undefined,
             };
+
+            await CacheUtils.putArrayAsDictItem('super-admins', admin._id.toString(), admin);
+
+            return admin;
         } catch (error) {
             throw error;
         }
@@ -55,11 +60,17 @@ class SuperAdminService {
                 await UserService.shouldBeUniqueUsername(data.username, [id]);
             }
 
-            const admin = await SuperAdmin.findOneAndUpdate({ _id: id }, data, { new: true })
+            let admin = await SuperAdmin.findOneAndUpdate({ _id: id }, data, { new: true })
                 .select('-password')
                 .exec();
 
-            return admin?.toJSON() || null;
+            admin = admin?.toJSON() || null;
+
+            if (admin) {
+                await CacheUtils.putArrayAsDictItem('super-admins', admin._id.toString(), admin);
+            }
+
+            return admin;
         } catch (error) {
             throw error;
         }
@@ -70,11 +81,17 @@ class SuperAdminService {
      */
     static async fetchAll(excludedIds = []) {
         try {
-            const admins = await SuperAdmin.find({ _id: { $nin: excludedIds } })
-                .select('-password')
-                .exec();
+            const admins = await CacheUtils.cacheArrayAsDict(
+                'super-admins',
+                async () => {
+                    return await SuperAdmin.find().select('-password').exec();
+                },
+                (admin) => admin._id?.toString()
+            );
 
-            return admins;
+            const excludedIdsSet = new Set(excludedIds);
+
+            return admins.filter((admin) => !excludedIdsSet.has(admin._id));
         } catch (error) {
             throw error;
         }
@@ -86,6 +103,10 @@ class SuperAdminService {
     static async deleteSuperAdmin(superAdminId) {
         try {
             const admin = await SuperAdmin.findOneAndDelete({ _id: superAdminId }).select('-password').exec();
+
+            if (admin) {
+                await CacheUtils.putArrayAsDictItem('super-admins', admin._id.toString(), undefined);
+            }
 
             return admin?.toJSON() || null;
         } catch (error) {

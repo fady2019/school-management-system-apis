@@ -1,5 +1,6 @@
 const ResponseError = require('../models/ResponseError');
 const { User } = require('../schemas/user.schema');
+const CacheUtils = require('../utils/cache.utils');
 
 require('../jsDocs/globalDefinitions');
 
@@ -39,13 +40,11 @@ class UserService {
      */
     static async findUserByType(userId, userType) {
         try {
-            const user = await User.findOne({ _id: userId, userType }).select('-password').exec();
+            return await CacheUtils.cacheString(`users:${userType}:${userId}`, async () => {
+                const user = await User.findOne({ _id: userId, userType }).select('-password').exec();
 
-            if (!user) {
-                return null;
-            }
-
-            return user?.toJSON() || null;
+                return user?.toJSON() || null;
+            });
         } catch (error) {
             throw error;
         }
