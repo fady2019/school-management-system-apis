@@ -72,6 +72,12 @@ https://school-management-sys-m66t.onrender.com/api-docs
     </a>
   </kbd>
 
+  <kbd title="Redis">
+    <a href="https://redis.io" target="_blank" rel="noreferrer"> 
+      <img src="https://github.com/devicons/devicon/blob/master/icons/redis/redis-original.svg" alt="redis" width="40" height="40"/> 
+    </a>
+  </kbd>
+
   <kbd title="Swagger">
     <a href="https://swagger.io" target="_blank" rel="noreferrer"> 
       <img src="https://github.com/devicons/devicon/blob/master/icons/swagger/swagger-original.svg" alt="swagger" width="40" height="40"/> 
